@@ -1,0 +1,418 @@
+/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+	line-height: 1;
+}
+
+/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+	list-style: none;
+}
+
+/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+	quotes: none;
+}
+/* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+	content: "";
+	content: none;
+}
+
+/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+	border: none;
+}
+
+/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+	display: block;
+}
+
+/* line 7, ../sass/style.scss */
+* {
+	box-sizing: border-box;
+	font-size: 18px;
+}
+
+/* line 11, ../sass/style.scss */
+.wrap {
+	overflow: hidden;
+}
+
+/* line 14, ../sass/style.scss */
+img {
+	max-width: 100%;
+}
+
+/* line 17, ../sass/style.scss */
+button {
+	cursor: pointer;
+}
+
+/* line 21, ../sass/style.scss */
+.p16 {
+	padding: 16px;
+}
+
+/* line 24, ../sass/style.scss */
+a {
+	cursor: pointer;
+}
+
+/* line 27, ../sass/style.scss */
+.titleBar {
+	display: table;
+	width: 80%;
+	margin: 0 auto;
+}
+/* line 30, ../sass/style.scss */
+.titleBar > * {
+	display: table-cell;
+	vertical-align: middle;
+	height: 56px;
+	text-align: center;
+}
+/* line 36, ../sass/style.scss */
+.titleBar p {
+	font-size: 10px;
+}
+
+/* line 40, ../sass/style.scss */
+.list_body {
+	display: table;
+	width: 100%;
+	padding-top: 16px;
+}
+/* line 44, ../sass/style.scss */
+.list_body > * {
+	display: table-cell;
+	vertical-align: top;
+}
+/* line 48, ../sass/style.scss */
+.list_body_img {
+	width: 25%;
+	text-align: center;
+}
+/* line 51, ../sass/style.scss */
+.list_body_img > img {
+	width: 80px;
+}
+/* line 55, ../sass/style.scss */
+.list_body_t {
+	width: 75%;
+	padding-left: 10px;
+}
+/* line 58, ../sass/style.scss */
+.list_body_t .title {
+	margin-bottom: 10px;
+}
+/* line 61, ../sass/style.scss */
+.list_body_t .auther, .list_body_t .publisher, .list_body_t .date {
+	font-size: 14px;
+	margin-bottom: 7px;
+}
+/* line 67, ../sass/style.scss */
+.list_body_t .text {
+	color: #888;
+	font-size: 12px;
+	letter-spacing: 2px;
+	line-height: 1.3em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+/* line 150, ../sass/style.scss */
+/*
+.indexMain > * {
+	display: none;
+}
+*/
+/* line 152, ../sass/style.scss */
+.indexMain > *.on {
+	display: block;
+}
+/* line 156, ../sass/style.scss */
+.indexMain .searchTop {
+	text-align: center;
+	min-height: 50vh;
+	padding-top: 50px;
+	position: relative;
+}
+/* line 161, ../sass/style.scss */
+.indexMain .searchTop .inner {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto auto;
+	width: 300px;
+	height: 180px;
+}
+/* line 171, ../sass/style.scss */
+.indexMain .searchTop h1 {
+	font-size: 10px;
+}
+/* line 174, ../sass/style.scss */
+.indexMain .searchTop_icon {
+	font-size: 33px;
+	margin: 10px;
+	display: block;
+}
+/* line 179, ../sass/style.scss */
+.indexMain .searchTop_catch {
+	margin: 18px 0;
+}
+/* line 182, ../sass/style.scss */
+.indexMain .searchTop_btn {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	border-radius: 32px;
+	background-color: #F4F4F4;
+	color: #333;
+	text-decoration: none;
+	line-height: 3.7em;
+	box-shadow: 0 1px 1px 1px #b1b1b1;
+}
+/* line 195, ../sass/style.scss */
+.indexMain .memoList h2 {
+	background-color: #818181;
+	font-size: 14px;
+	line-height: 2.3em;
+	color: #fff;
+	padding-left: 16px;
+	letter-spacing: 1px;
+}
+/* line 203, ../sass/style.scss */
+.indexMain .memoList li {
+	display: table;
+	width: 100%;
+	border-bottom: solid 1px #ddd;
+	padding: 20px 16px;
+	box-sizing: border-box;
+}
+/* line 209, ../sass/style.scss */
+.indexMain .memoList li > * {
+	display: table-cell;
+	vertical-align: top;
+}
+/* line 213, ../sass/style.scss */
+.indexMain .memoList li .list_t {
+	width: 70%;
+}
+/* line 215, ../sass/style.scss */
+.indexMain .memoList li .list_t .title {
+	margin-bottom: 10px;
+	line-height: 1.2em;
+}
+/* line 219, ../sass/style.scss */
+.indexMain .memoList li .list_t .auther {
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+/* line 223, ../sass/style.scss */
+.indexMain .memoList li .list_t .text {
+	color: #888;
+	font-size: 14px;
+	letter-spacing: .2em;
+	line-height: 1.3em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+/* line 233, ../sass/style.scss */
+.indexMain .memoList li .list_img {
+	width: 25%;
+	text-align: center;
+}
+/* line 236, ../sass/style.scss */
+.indexMain .memoList li .list_img img {
+	width: 60px;
+}
+/* line 240, ../sass/style.scss */
+.indexMain .memoList li span {
+	width: 5%;
+	vertical-align: middle;
+}
+/* line 247, ../sass/style.scss */
+.indexMain .searchBox_back {
+	width: 15%;
+	text-align: center;
+}
+/* line 251, ../sass/style.scss */
+.indexMain .searchBox_text {
+	width: 70%;
+	border-bottom: solid 1px #333;
+	position: relative;
+	text-align: left;
+}
+/* line 256, ../sass/style.scss */
+.indexMain .searchBox_text_input {
+	width: 100%;
+	padding: 25px 16px;
+	box-sizing: border-box;
+	border: none;
+	padding-left: 0;
+	font-size: 20px;
+}
+/* line 264, ../sass/style.scss */
+.indexMain .searchBox_text_btn {
+	width: 15%;
+	height: 56px;
+	text-align: center;
+}
+/* line 268, ../sass/style.scss */
+.indexMain .searchBox_text_btn .btn {
+	display: block;
+	line-height: 3em;
+}
+/* line 276, ../sass/style.scss */
+.indexMain .searchResult_head {
+	padding: 26px 16px;
+}
+/* line 279, ../sass/style.scss */
+.indexMain .searchResult_head p {
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: #888;
+}
+/* line 285, ../sass/style.scss */
+.indexMain .searchResult .inner {
+	background-color: #F4F4F4;
+	border-top: solid 1px #fff;
+}
+/* line 288, ../sass/style.scss */
+.indexMain .searchResult .inner .text {
+	font-size: 12px;
+	padding: 12px 0;
+}
+/* line 292, ../sass/style.scss */
+.indexMain .searchResult .inner .notice {
+	font-size: 18px;
+	text-align: center;
+	padding: 12px 0;
+}
+/* line 297, ../sass/style.scss */
+.indexMain .searchResult .inner li {
+	padding: 0 16px 16px;
+	width: 100%;
+}
+/* line 300, ../sass/style.scss */
+.indexMain .searchResult .inner li .title {
+	padding: 12px 0;
+	border-bottom: solid 1px #000;
+	margin-top: 10px;
+	font-weight: bold;
+	letter-spacing: .1em;
+	line-height: 1.2em;
+}
+/* line 310, ../sass/style.scss */
+.indexMain .searchResult .inner li .list_body_t button {
+	background-color: #000;
+	color: #fff;
+	width: 100%;
+	border: none;
+	font-size: 14px;
+	padding: 20px;
+	letter-spacing: 2px;
+}
+/* line 318, ../sass/style.scss */
+.indexMain .searchResult .inner li .list_body_t button span {
+	margin-right: 5px;
+}
+/* line 327, ../sass/style.scss */
+.indexMain .memoEdit {
+	background-color: #F4F4F4;
+}
+/* line 329, ../sass/style.scss */
+.indexMain .memoEdit_title {
+	font-size: 10px;
+}
+/* line 332, ../sass/style.scss */
+.indexMain .memoEdit_back, .indexMain .memoEdit_delate {
+	width: 15%;
+}
+/* line 336, ../sass/style.scss */
+.indexMain .memoEdit_body {
+	padding: 0 16px 16px;
+}
+/* line 338, ../sass/style.scss */
+.indexMain .memoEdit_body_img {
+	width: 25%;
+}
+/* line 343, ../sass/style.scss */
+.indexMain .memoDetail {
+	background-color: #fff;
+	padding-top: 22px;
+}
+/* line 346, ../sass/style.scss */
+.indexMain .memoDetail > p {
+	font-size: 10px;
+	letter-spacing: 2px;
+}
+/* line 350, ../sass/style.scss */
+.indexMain .memoDetail_input {
+	border: solid 1px #ddd;
+	width: 100%;
+	margin: 16px 0;
+}
+/* line 355, ../sass/style.scss */
+.indexMain .memoDetail .save_btn {
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	letter-spacing: 2px;
+	font-size: 18px;
+	padding: 20px;
+}
+
+
+
+
+
+.toTop{
+	text-decoration: none;
+	font-size: 14px;
+	color: #5e5e5e;
+}
+.toTopWrapper {
+	text-align: center;
+	margin: 40px 0 0 0;
+}

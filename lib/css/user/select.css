@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* ----------------------------------------------------------------
+Site Name: project
+Author: mt
+---------------------------------------------------------------- */
+.one {
+	width: 820px;
+	height: 48px;
+	margin: 0 auto;
+	background-color: #0F1C25;
+	margin: 0 0 20px 0;
+	
+}
+.one-inner{
+	line-height: 3.0;
+	color: #9AA5AF !important;
+	padding-left: 20px;
+}
+.icon_delete{
+	width: 24px !important;
+	height: 24px !important;
+	float: right;
+	margin: 12px 20px 0 0;
+}
+.icon_edit{
+	width: 24px !important;
+	height: 24px !important;
+	float: right;
+	margin: 12px 20px 0 0;
+}
+.indate {
+	float: right;
+	line-height: 3.0;
+	color: #9AA5AF !important;
+	padding-left: 20px;
+	margin: 0 20px 0 0;
+}
