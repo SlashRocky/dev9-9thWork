@@ -237,6 +237,10 @@ a {
 .indexMain .memoList li .list_t {
 	width: 70%;
 }
+.indexMain .memoList li .delete-btn {
+	width: 10%;
+	text-align: center;
+}
 /* line 215, ../sass/style.scss */
 .indexMain .memoList li .list_t .title {
 	margin-bottom: 10px;
@@ -258,7 +262,7 @@ a {
 }
 /* line 233, ../sass/style.scss */
 .indexMain .memoList li .list_img {
-	width: 25%;
+	width: 15%;
 	text-align: center;
 }
 /* line 236, ../sass/style.scss */
@@ -415,4 +419,10 @@ a {
 .toTopWrapper {
 	text-align: center;
 	margin: 40px 0 0 0;
+}
+
+.icon_delete{
+	width: 24px !important;
+	height: 24px !important;
+	margin: 24px 0 0 0;
 }

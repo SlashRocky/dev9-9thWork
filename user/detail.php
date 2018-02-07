@@ -50,14 +50,18 @@
 		//その人が登録してあるだけの書籍データ取得
     while( $result2 = $stmt -> fetch(PDO::FETCH_ASSOC) ){
 			
-			$view .= '<li>';
-				$view .= '<div class="list_t">';
-					$view .= '<h3 class="title"><?php echo'.$result2['title'].'; ?></h3>';
-					$view .= '<p class="text"><?php echo'. $result2['comment'].'; ?></p>';
-				$view .= '</div>';
+			$view .= '<li class="one-book">';
 				$view .= '<div class="list_img">';
-					$view .= '<img src="<?php echo'.$result2['url'].'; ?>">';
+					$view .= '<img src="'.$result2['url'].'">';
 				$view .= ' </div>';
+				$view .= '<div class="list_t">';
+					$view .= '<h3 class="title">'.$result2['title'].'</h3>';
+					$view .= '<p class="text">'. $result2['comment'].'</p>';
+				$view .= '</div>';
+				$view .= '<a href="delete.php?id='.$result["id"].'" class="delete-btn">'; 
+					$view .= '<img src="../lib/img/user/icon_delete.png" class="icon_delete">';
+				$view .= '</a>';
+				$view .= '<div class="clear"></div>';
 			$view .= ' </li>';
 			
     }
@@ -195,14 +199,19 @@
             <div class="wrapper">
 
               <fieldset>
-                <legend>USER情報</legend>
-                <label>名前：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
-                <label>ログインID：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
-                <label>ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
+								<legend class="title_person"><?=$result["name"]?>さんの情報</legend>
+                <div class="personal">
+									<label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
+									<label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
+									<label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
+								</div>
 								<ul class="book-list">
 									<?=$view?>
 								</ul>
-                <input type="submit" value="送信">
+								<div class="wrapper-submit-btn">
+									<input type="submit" value="登録情報変更" class="submit-btn">
+								</div>
+               
                 <!-- 裏でidを渡す -->
                 <input type="hidden" name="id" value="<?=$id?>">
               </fieldset>

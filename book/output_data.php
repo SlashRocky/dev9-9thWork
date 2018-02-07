@@ -54,14 +54,19 @@
               //実行して返ってきたデータを変数$resultに格納　書籍データの数だけwhileで回して表示
               while( $result = $stmt -> fetch(PDO::FETCH_ASSOC) ){
             ?>
-              <li>
-                <div class="list_t">
-                  <h3 class="title"><?php echo $result['title']; ?></h3>
-                  <p class="text"><?php echo $result['comment']; ?></p>
-                </div>
-                <div class="list_img">
-                  <img src="<?php echo $result['url']; ?>">
-                </div>
+						<li>
+							<div class="list_img">
+								<img src="<?php echo $result['url']; ?>">
+							</div>
+							<div class="list_t">
+								<h3 class="title"><?php echo $result['title']; ?></h3>
+								<p class="text"><?php echo $result['comment']; ?></p>
+							</div>
+							<div class="delete-btn">
+								<a href="delete.php?id='<?php echo $result["id"] ?>'">
+									<img src="../lib/img/user/icon_delete.png" class="icon_delete">
+								</a>
+							</div>
               </li>
             <?php
               }
