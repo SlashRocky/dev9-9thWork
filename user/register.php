@@ -94,17 +94,17 @@
               <form method="post" action="insert.php">
                 <div class="">
                   <fieldset>
-										<legend  class="title_person">ユーザー新規登録</legend>
-											<div class="personal">
-												<label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name"></label><br>
-												<label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId"></label><br>
-												<label class="label3">ログインパスワード：<input type="text" name="loginPw"></label><br>
-												<label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag"></label><br>
-												<label class="label5">ユーザーステータス：<input type="text" name="life_flag"></label><br>
-											</div>
-											<div class="wrapper-submit-btn">
-												<input type="submit" value="登録">
-											</div>
+                    <legend  class="title_person">ユーザー新規登録</legend>
+                      <div class="personal">
+                        <label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name"></label><br>
+                        <label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId"></label><br>
+                        <label class="label3">ログインパスワード：<input type="text" name="loginPw"></label><br>
+                        <label class="label4">管理フラッグ&emsp;&emsp;&emsp;：<input type="text" name="manage_flag"></label><br>
+                        <label class="label5">ユーザーステータス：<input type="text" name="life_flag"></label><br>
+                      </div>
+                      <div class="wrapper-submit-btn">
+                        <input type="submit" value="登録">
+                      </div>
                   </fieldset>
                 </div>
               </form>
