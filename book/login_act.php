@@ -55,12 +55,16 @@
 
 			//一覧画面にリダイレクト
 			if($row['manage_flag'] == 1){
+				
 				//もし管理者ならユーザーを管理できるリンクのあるページに飛ばす
 				header('Location: input_data_manage.php');
+				
 			}
 			else{
+				
 				//それ以外だったら普通のページに飛ばす
 				header('Location: input_data.php');
+				
 			}
 		}
 		//該当レコードがなければ

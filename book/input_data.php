@@ -5,12 +5,26 @@
 	//関数定義ファイル読み込み
 	include("../include/functions.php");
 
-  //ログインしてなかったら
+	//$_SESSION['userId']が存在しているなら$userIdに格納　存在していないならゲストユーザーとして扱う
+  $userId = isset($_SESSION['userId']) ? $_SESSION['userId'] : "";
+
+	//「ようこそ○○さん」の○○ 変数s宣言
+  $viewName ="";
+
+	//表示メニューのタグ
+	$viewMenu ="";
+
+  //ゲストユーザーなら
   if( !isset($_SESSION['name']) ){
-		
-		//logout.phpへリダイレクト
-    header('Location: logout.php');
-    exit();
+    $viewName = "ゲスト";
+		$viewMenu .= '<li class="menu3">ようこそ<u>'.$viewName.'</u>さん</li>';
+  }
+	//ログインしてるなら
+	else{
+    $viewName = $_SESSION['name'];
+		$viewMenu .= ' <li class="menu1"><a href="logout.php">LOG OUT</a></li>';
+		$viewMenu .= '<li class="menu2"><a href="output_data.php">登録書籍一覧</a></li>';
+		$viewMenu .= '<li class="menu3">ようこそ<u>'.$viewName.'</u>さん</li>';
   }
 ?>
 
@@ -28,13 +42,13 @@
 		<script src="../lib/js/book/book.js"></script>
   </head>
   <body>
-    <input type="hidden" name="userId" value="<?php echo $_SESSION['userId']; ?>">
+    <!-- ユーザーIdを裏で渡す -->
+    <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+    
     <main class="wrap indexMain">
       <section class="searchTop on">
         <ul class="menu">
-          <li class="menu1"><a href="logout.php">LOG OUT</a></li>
-					<li class="menu2"><a href="output_data.php">登録書籍一覧</a></li>
-					<li class="menu3">ようこそ<u><?php echo xss($_SESSION['name']); ?></u>さん</li>
+        	<?=$viewMenu?>
         </ul>
         <div class="inner">
           <h1>book!</h1>

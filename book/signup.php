@@ -60,8 +60,12 @@
 			
 			//セッション変数に渡す
 			$_SESSION['name'] = $name;
+			$_SESSION['loginId'] = $loginId;
+			$_SESSION['loginPw'] = $loginPw;
+			$_SESSION['manage_flag'] = $manage_flag;
+			$_SESSION['life_flag'] = $life_flag;
 			
-			header('Location: input_data.php');
+			header('Location: signup_act.php');
 			exit();
 		}
 		//入力内容に誤りがあるなら
@@ -101,6 +105,9 @@
 	<body>
 		<div class="form-wrapper">
 			<h1>Create an Account</h1>
+			
+			<!-- ユーザーIdを裏で渡す -->
+			<input type="hidden" name="userId" value="<?php echo $userId; ?>">
 			
 			<form method="post" action="signup.php" name="form2">
 				<div><font color="#ff0000"><?php echo xss($errMsg); ?></font></div>
@@ -151,11 +158,9 @@
 			</form>
 -->
 			
-<!--
 			<div class="form-footer">
-					<p><a href="login.php">ログインページへ戻る</a></p>
+					<p><a href="login.php">log In</a></p>
 			</div>
--->
 			
 		</div>
 		

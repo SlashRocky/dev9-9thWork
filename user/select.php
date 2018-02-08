@@ -1,4 +1,6 @@
 <?php
+	//セッション開始
+	session_start();
 	
 	//関数定義ファイル読み込み
 	include("../include/functions.php");
@@ -18,12 +20,14 @@
   //生成タグ
   $view="";
 
+	//実行が失敗なら
   if($flag == false){
 		
 		//SQL ERROR関数実行
 		queryError($stmt);
 			
   }
+	//実行が成功なら
   else{
 		
     //データの数だけ回す

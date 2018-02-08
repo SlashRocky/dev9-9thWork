@@ -1,53 +1,62 @@
 <?php
+	//セッション開始
+//	session_start();
+
+	//関数定義ファイル読み込み
+	include("../include/functions.php");
 
   //入力チェック(受信確認処理追加)
   if(
     !isset($_POST["id"]) || $_POST["id"]=="" ||
+		!isset($_POST["name"]) || $_POST["name"]=="" ||
     !isset($_POST["loginId"]) || $_POST["loginId"]=="" ||
     !isset($_POST["loginPw"]) || $_POST["loginPw"]=="" ||
-    !isset($_POST["name"]) || $_POST["name"]=="" ||
-    !isset($_POST["email"]) || $_POST["email"]=="" ||
-    !isset($_POST["naiyou"]) || $_POST["naiyou"]==""
+		!isset($_POST["manage_flag"]) || $_POST["manage_flag"]=="" ||
+		!isset($_POST["life_flag"]) || $_POST["life_flag"]==""
     ){
     exit('ParamError');
   }
 
-  //1. POSTデータ取得
+  //POST送信されたデータの取得
   $id = $_POST["id"];
+	$name   = $_POST["name"];
   $loginId = $_POST["loginId"];
   $loginPw = $_POST["loginPw"];
-  $name   = $_POST["name"];
-  $email  = $_POST["email"];
-  $naiyou = $_POST["naiyou"];
+	$manage_flag  = $_POST["manage_flag"];
+	$life_flag = $_POST["life_flag"];
 
-  //2. DB接続します(エラー処理追加)
-  try {
-    $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root','');
-  }
-  catch (PDOException $e) {
-    exit('DbConnectError:'.$e->getMessage());
-  }
+	//DB CONNECTION関数実行
+	$pdo = dbConnection();
 
-  //３．データ登録SQL作成
-  $sql = 'UPDATE gs_user_table SET loginId=:loginId, loginPw=:loginPw, name=:name, email=:email, naiyou=:naiyou WHERE id=:id';
+  //実行SQL文
+	$sql = 'UPDATE user_table SET name=:name, loginId=:loginId, loginPw=:loginPw, manage_flag=:manage_flag, life_flag=:life_flag WHERE id=:id';
+
+	//prepareメソッドでセット
   $stmt = $pdo -> prepare($sql);
-  $stmt -> bindValue(':id', $id, PDO::PARAM_INT);
-  $stmt -> bindValue(':loginId', $loginId, PDO::PARAM_INT);
-  $stmt -> bindValue(':loginPw', $loginPw, PDO::PARAM_INT);
-  $stmt -> bindValue(':name', $name, PDO::PARAM_STR);
-  $stmt -> bindValue(':email', $email, PDO::PARAM_STR);
-  $stmt -> bindValue(':naiyou', $naiyou, PDO::PARAM_STR);
+
+	//bindValue
+	$stmt -> bindValue(':name', $name, PDO::PARAM_STR);
+  $stmt -> bindValue(':loginId', $loginId, PDO::PARAM_ STR);
+  $stmt -> bindValue(':loginPw', $loginPw, PDO::PARAM_STR);
+	$stmt -> bindValue(':manage_flag', $manage_flag, PDO::PARAM_STR);
+	$stmt -> bindValue(':life_flag', $life_flag, PDO::PARAM_STR);
+
+	//実行
   $flag = $stmt -> execute();
 
-  //４．データ登録処理後
-  if($flag==false){
-    //SQL実行時にエラーがある場合（エラーオブジェクト取得して表示）
-    $error = $stmt->errorInfo();
-    exit("QueryError:".$error[2]);
+ //実行が失敗なら
+  if($flag == false){
+		
+		//SQL ERROR関数実行
+		queryError($stmt);
+		
   }
+	//実行が成功なら
   else{
-    //５．select.phpへリダイレクト
+		
+    //変更内容を反映したうえでユーザー一覧画面に戻す
     header("Location: select.php");
-    exit;
+    exit();
+		
   }
 ?>

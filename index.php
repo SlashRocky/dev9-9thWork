@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="format-detection" content="telephone=no">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>index | BookMark</title>
+		<title>Top | BookMarkApp</title>
 		<link href="lib/css/top.css" rel="stylesheet">
 		<script src="lib/js/jquery-3.2.0.min.js"></script>
 		<script src="lib/js/top.js"></script>
@@ -16,9 +16,7 @@
 				<p>Book Mark App</p>
 				<nav>
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Services</a></li>
+						<li><a href="book/input_data.php">Guest</a></li>
 						<li><a href="book/signup.php">SignUp</a></li>
 						<li><a href="book/login.php">LogIn</a></li>
 					</ul>

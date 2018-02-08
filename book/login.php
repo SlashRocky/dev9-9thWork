@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="format-detection" content="telephone=no">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>logIn | BookMark</title>
+		<title>logIn | BookMarkApp</title>
 		<link href="../lib/css/book/login-logout.css" rel="stylesheet">
 		<script src="../lib/js/jquery-3.2.0.min.js"></script>
 	</head>
@@ -28,7 +28,7 @@
 			</form>
 			<div class="form-footer">
 				<p><a href="signup.php">Create an account</a></p>
-				<p><a href="#">Forgot password?</a></p>
+				<!--<p><a href="#">Forgot password?</a></p>-->
 			</div>
 		</div>
 	</body>

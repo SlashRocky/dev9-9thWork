@@ -21,13 +21,14 @@
   //実行
   $flag = $stmt -> execute();
 
-  //３．データ表示
+  //実行が失敗したら
   if($flag == false){
 
 		//SQL ERROR関数実行
 		queryError($stmt);
 
   }
+	//実行が成功したら
   else{
 		//一行だけ取り出す
     $result = $stmt -> fetch();
@@ -50,20 +51,26 @@
 		//その人が登録してあるだけの書籍データ取得
     while( $result2 = $stmt -> fetch(PDO::FETCH_ASSOC) ){
 			
-			$view .= '<li class="one-book">';
+			//保存されている書籍データがないなら
+			if($result2 == ''){
+				$view .= '<li><p>登録されている書籍はありません</p></li>';
+			}
+			//保存されている書籍データがあるなら
+			else{
+				$view .= '<li class="one-book">';
 				$view .= '<div class="list_img">';
-					$view .= '<img src="'.$result2['url'].'">';
+				$view .= '<img src="'.$result2['url'].'">';
 				$view .= ' </div>';
 				$view .= '<div class="list_t">';
-					$view .= '<h3 class="title">'.$result2['title'].'</h3>';
-					$view .= '<p class="text">'. $result2['comment'].'</p>';
+				$view .= '<h3 class="title">'.$result2['title'].'</h3>';
+				$view .= '<p class="text">'. $result2['comment'].'</p>';
 				$view .= '</div>';
 				$view .= '<a href="delete.php?id='.$result["id"].'" class="delete-btn">'; 
-					$view .= '<img src="../lib/img/user/icon_delete.png" class="icon_delete">';
+				$view .= '<img src="../lib/img/user/icon_delete.png" class="icon_delete">';
 				$view .= '</a>';
 				$view .= '<div class="clear"></div>';
-			$view .= ' </li>';
-			
+				$view .= ' </li>';
+			}
     }
   }
 ?>
@@ -204,6 +211,8 @@
 									<label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
 									<label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
 									<label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
+									<label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag" value="<?=$result["manage_flag"]?>"></label><br>
+									<label class="label5">ユーザーステータス：<input type="text" name="life_flag" value="<?=$result["life_flag"]?>"></label><br>
 								</div>
 								<ul class="book-list">
 									<?=$view?>
@@ -214,6 +223,7 @@
                
                 <!-- 裏でidを渡す -->
                 <input type="hidden" name="id" value="<?=$id?>">
+                
               </fieldset>
 
             </div>

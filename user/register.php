@@ -30,8 +30,10 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="lib/img/favicon.ico" />
 
     <!-- css -->
-    <link rel="stylesheet" href="lib/css/style.css">
-    <link rel="stylesheet" href="lib/css/memo.css">
+    <link rel="stylesheet" href="../lib/css/style.css">
+    <link rel="stylesheet" href="../lib/css/user/memo.css">
+		<link rel="stylesheet" href="../lib/css/book/book3.css">
+    
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
@@ -57,7 +59,7 @@
     </script>
 
     <!-- ColumnScroller -->
-    <script src="lib/js/jquery-smartColumnScroller.js"></script>
+    <script src="../lib/js/user/jquery-smartColumnScroller.js"></script>
     <script>
       $(window).load(function() {
         $('#header').smartColumnScroller();
@@ -92,15 +94,17 @@
               <form method="post" action="insert.php">
                 <div class="">
                   <fieldset>
-
-                    <legend>USER新規登録</legend>
-                    <label>名前：<input type="text" name="name"></label><br>
-                    <label>Email：<input type="text" name="email"></label><br>
-                    <label>ログインID：<input type="text" name="loginId"></label><br>
-                    <label>ログインパスワード：<input type="text" name="loginPw"></label><br>
-                    <label><textArea name="naiyou" rows="4" cols="40"></textArea></label><br>
-                    <input type="submit" value="送信">
-
+										<legend  class="title_person">ユーザー新規登録</legend>
+											<div class="personal">
+												<label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name"></label><br>
+												<label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId"></label><br>
+												<label class="label3">ログインパスワード：<input type="text" name="loginPw"></label><br>
+												<label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag"></label><br>
+												<label class="label5">ユーザーステータス：<input type="text" name="life_flag"></label><br>
+											</div>
+											<div class="wrapper-submit-btn">
+												<input type="submit" value="登録">
+											</div>
                   </fieldset>
                 </div>
               </form>

@@ -65,7 +65,7 @@
                   <p class="text"><?php echo $result['comment']; ?></p>
                 </div>
                 <div class="delete-btn">
-                    <a href="delete_data.php?bookId='<?php echo $result["bookId"] ?>'">
+                    <a href="delete_data.php?bookId=<?php echo $result["bookId"] ?>">
                       <img src="../lib/img/user/icon_delete.png" class="icon_delete">
                     </a>
                 </div>
