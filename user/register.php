@@ -79,7 +79,7 @@
               BM USER
             </button>
           </h1>
-          <a href="index.php" class="new-btn color-f fs-14 d-block ta-center w90 m-auto b-all-f pr20 pl20 pt10 pb10 br-4 bg-3 op-05 c-pointer">
+          <a href="#" class="new-btn color-f fs-14 d-block ta-center w90 m-auto b-all-f pr20 pl20 pt10 pb10 br-4 bg-3 op-05 c-pointer">
             <i class="fa fa-plus color-f"></i>&emsp;ユーザー新規登録
           </a>
         </div>

@@ -3,11 +3,11 @@
   $id = $_GET["id"];
   echo $id;
 
-	//関数定義ファイル読み込み
-	include("../include/functions.php");
+  //関数定義ファイル読み込み
+  include("../include/functions.php");
 
-	//DB CONNECTION関数実行
-	$pdo = dbConnection();
+  //DB CONNECTION関数実行
+  $pdo = dbConnection();
 
   //実行SQL文
   $sql = 'SELECT * FROM user_table WHERE id=:id';
@@ -24,13 +24,14 @@
   //実行が失敗したら
   if($flag == false){
 
-		//SQL ERROR関数実行
-		queryError($stmt);
+    //SQL ERROR関数実行
+    queryError($stmt);
 
   }
-	//実行が成功したら
+  //実行が成功したら
   else{
-		//一行だけ取り出す
+    
+    //一行だけ取り出す
     $result = $stmt -> fetch();
 
     //実行SQL文
@@ -65,7 +66,7 @@
 				$view .= '<h3 class="title">'.$result2['title'].'</h3>';
 				$view .= '<p class="text">'. $result2['comment'].'</p>';
 				$view .= '</div>';
-				$view .= '<a href="delete.php?id='.$result["id"].'" class="delete-btn">'; 
+                $view .= '<a href="delete_Bookdata.php?bookId='.$result2['bookId'].'" class="delete-btn">'; 
 				$view .= '<img src="../lib/img/user/icon_delete.png" class="icon_delete">';
 				$view .= '</a>';
 				$view .= '<div class="clear"></div>';
@@ -193,7 +194,7 @@
               BM USER
             </button>
           </h1>
-          <a href="index.php" class="new-btn color-f fs-14 d-block ta-center w90 m-auto b-all-f pr20 pl20 pt10 pb10 br-4 bg-3 op-05 c-pointer">
+          <a href="register.php" class="new-btn color-f fs-14 d-block ta-center w90 m-auto b-all-f pr20 pl20 pt10 pb10 br-4 bg-3 op-05 c-pointer">
             <i class="fa fa-plus color-f"></i>&emsp;ユーザー新規登録
           </a>
         </div>
@@ -206,23 +207,23 @@
             <div class="wrapper">
 
               <fieldset>
-								<legend class="title_person"><?=$result["name"]?>さんの情報</legend>
+				<legend class="title_person"><?=$result["name"]?>さんの情報</legend>
                 <div class="personal">
-									<label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
-									<label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
-									<label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
-									<label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag" value="<?=$result["manage_flag"]?>"></label><br>
-									<label class="label5">ユーザーステータス：<input type="text" name="life_flag" value="<?=$result["life_flag"]?>"></label><br>
-								</div>
-								<ul class="book-list">
-									<?=$view?>
-								</ul>
-								<div class="wrapper-submit-btn">
-									<input type="submit" value="登録情報変更" class="submit-btn">
-								</div>
+                  <label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
+                  <label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
+                  <label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
+                  <label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag" value="<?=$result["manage_flag"]?>"></label><br>
+                  <label class="label5">ユーザーステータス：<input type="text" name="life_flag" value="<?=$result["life_flag"]?>"></label><br>
+              </div>
+              <ul class="book-list">
+                  <?=$view?>
+              </ul>
+              <div class="wrapper-submit-btn">
+                  <input type="submit" value="登録情報変更" class="submit-btn">
+              </div>
                
-                <!-- 裏でidを渡す -->
-                <input type="hidden" name="id" value="<?=$id?>">
+              <!-- 裏でidを渡す -->
+              <input type="hidden" name="id" value="<?=$id?>">
                 
               </fieldset>
 

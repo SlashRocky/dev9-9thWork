@@ -172,7 +172,7 @@
               BM USER
             </button>
           </h1>
-          <a href="../book/signup.php" class="new-btn color-f fs-14 d-block ta-center w90 m-auto b-all-f pr20 pl20 pt10 pb10 br-4 bg-3 op-05 c-pointer">
+          <a href="register.php" class="new-btn color-f fs-14 d-block ta-center w90 m-auto b-all-f pr20 pl20 pt10 pb10 br-4 bg-3 op-05 c-pointer">
             <i class="fa fa-plus color-f"></i>&emsp;ユーザー新規登録
           </a>
         </div>
@@ -183,7 +183,7 @@
         <section id="main-inner" class="mr200 pt30 pb10">
           <div class="container">
             <div class="wrapper">
-		      		<?=$view?>
+		      <?=$view?>
             </div>
           </div>
         </section>
