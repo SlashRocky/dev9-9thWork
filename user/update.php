@@ -1,6 +1,6 @@
 <?php
 	//セッション開始
-//	session_start();
+	session_start();
 
 	//関数定義ファイル読み込み
 	include("../include/functions.php");
@@ -29,14 +29,14 @@
 	$pdo = dbConnection();
 
   //実行SQL文
-	$sql = 'UPDATE user_table SET name=:name, loginId=:loginId, loginPw=:loginPw, manage_flag=:manage_flag, life_flag=:life_flag WHERE id=:id';
+	$sql = 'UPDATE user_table SET name=:name, loginId=:loginId, loginPw=:loginPw, manage_flag=:manage_flag, life_flag=:life_flag WHERE id='.$id;
 
 	//prepareメソッドでセット
   $stmt = $pdo -> prepare($sql);
 
 	//bindValue
 	$stmt -> bindValue(':name', $name, PDO::PARAM_STR);
-  $stmt -> bindValue(':loginId', $loginId, PDO::PARAM_ STR);
+  $stmt -> bindValue(':loginId', $loginId, PDO::PARAM_STR);
   $stmt -> bindValue(':loginPw', $loginPw, PDO::PARAM_STR);
 	$stmt -> bindValue(':manage_flag', $manage_flag, PDO::PARAM_STR);
 	$stmt -> bindValue(':life_flag', $life_flag, PDO::PARAM_STR);

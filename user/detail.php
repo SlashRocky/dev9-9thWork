@@ -1,7 +1,9 @@
 <?php
   //GET送信されたidを取得(URLの後ろについてるデータ)
   $id = $_GET["id"];
-  echo $id;
+
+  //何冊登録書籍があるか
+  $count = 0;
 
   //関数定義ファイル読み込み
   include("../include/functions.php");
@@ -35,13 +37,13 @@
     $result = $stmt -> fetch();
 
     //実行SQL文
-    $sql = 'SELECT * FROM book_table WHERE userId = :userId';
+    $sql = 'SELECT * FROM book_table WHERE userId=:userId';
 
     //prepareメソッドにセット
     $stmt = $pdo -> prepare($sql);
     
     //bindValue ※ book_tableのuser_id = user_tableのid 
-    $stmt -> bindValue(':userId', $id, PDO::PARAM_STR);
+    $stmt -> bindValue(':userId', $id, PDO::PARAM_INT);
 
     //実行
     $flag = $stmt -> execute();
@@ -51,28 +53,28 @@
 		
 		//その人が登録してあるだけの書籍データ取得
     while( $result2 = $stmt -> fetch(PDO::FETCH_ASSOC) ){
+      
+      $view .= '<li class="one-book">';
+      $view .= '<div class="list_img">';
+      $view .= '<img src="'.$result2['url'].'">';
+      $view .= ' </div>';
+      $view .= '<div class="list_t">';
+      $view .= '<h3 class="title">'.$result2['title'].'</h3>';
+      $view .= '<p class="text">'.$result2['comment'].'</p>';
+      $view .= '</div>';
+      $view .= '<a href="delete_Bookdata.php?bookId='.$result2['bookId'].'" class="delete-btn">'; 
+      $view .= '<img src="../lib/img/user/icon_delete.png" class="icon_delete">';
+      $view .= '</a>';
+      $view .= '<div class="clear"></div>';
+      $view .= '</li>';
 			
-			//保存されている書籍データがないなら
-			if($result2 == ''){
-				$view .= '<li><p>登録されている書籍はありません</p></li>';
-			}
-			//保存されている書籍データがあるなら
-			else{
-				$view .= '<li class="one-book">';
-				$view .= '<div class="list_img">';
-				$view .= '<img src="'.$result2['url'].'">';
-				$view .= ' </div>';
-				$view .= '<div class="list_t">';
-				$view .= '<h3 class="title">'.$result2['title'].'</h3>';
-				$view .= '<p class="text">'. $result2['comment'].'</p>';
-				$view .= '</div>';
-                $view .= '<a href="delete_Bookdata.php?bookId='.$result2['bookId'].'" class="delete-btn">'; 
-				$view .= '<img src="../lib/img/user/icon_delete.png" class="icon_delete">';
-				$view .= '</a>';
-				$view .= '<div class="clear"></div>';
-				$view .= ' </li>';
-			}
+      $count++;
     }
+    //カウントが0の場合の処理
+    if($count == 0){
+      $view .= '<li><p class="no-book">登録されている書籍はありません</p></li>';
+    }
+    
   }
 ?>
 
@@ -205,28 +207,26 @@
         <section id="main-inner" class="mr200 pt30 pb10">
           <div class="container">
             <div class="wrapper">
-
-              <fieldset>
-				<legend class="title_person"><?=$result["name"]?>さんの情報</legend>
-                <div class="personal">
-                  <label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
-                  <label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
-                  <label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
-                  <label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag" value="<?=$result["manage_flag"]?>"></label><br>
-                  <label class="label5">ユーザーステータス：<input type="text" name="life_flag" value="<?=$result["life_flag"]?>"></label><br>
-              </div>
-              <ul class="book-list">
-                  <?=$view?>
-              </ul>
-              <div class="wrapper-submit-btn">
-                  <input type="submit" value="登録情報変更" class="submit-btn">
-              </div>
-               
-              <!-- 裏でidを渡す -->
-              <input type="hidden" name="id" value="<?=$id?>">
-                
-              </fieldset>
-
+							<form method="post" action="update.php">
+								<fieldset>
+									<legend class="title_person"><?=$result["name"]?>さんの情報</legend>
+									<div class="personal">
+										<label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
+										<label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
+										<label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
+										<label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag" value="<?=$result["manage_flag"]?>"></label><br>
+										<label class="label5">ユーザーステータス：<input type="text" name="life_flag" value="<?=$result["life_flag"]?>"></label><br>
+									</div>
+									<ul class="book-list">
+											<?=$view?>
+									</ul>
+									<div class="wrapper-submit-btn">
+											<input type="submit" value="登録情報変更" class="submit-btn">
+									</div>
+									<!-- 裏でidを渡す -->
+									<input type="hidden" name="id" value="<?=$id?>">
+								</fieldset>
+							</form>
             </div>
           </div>
         </section>
