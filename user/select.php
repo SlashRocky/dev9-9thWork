@@ -1,33 +1,33 @@
 <?php
-	//セッション開始
-	session_start();
-	
-	//関数定義ファイル読み込み
-	include("../include/functions.php");
-  
-	//DB CONNECTION関数実行
-	$pdo = dbConnection();
-	
-	//実行したいSQL文
-	$sql = 'SELECT * FROM user_table';
+  //セッション開始
+  session_start();
 
-	//prepareメソッドにセット
-	$stmt = $pdo -> prepare($sql);
+  //関数定義ファイル読み込み
+  include("../include/functions.php");
 
-	//実行
+  //DB CONNECTION関数実行
+  $pdo = dbConnection();
+
+  //実行したいSQL文
+  $sql = 'SELECT * FROM user_table';
+
+  //prepareメソッドにセット
+  $stmt = $pdo -> prepare($sql);
+
+  //実行
   $flag = $stmt -> execute();
 
   //生成タグ
-  $view="";
+  $view = "";
 
-	//実行が失敗なら
+  //実行が失敗なら
   if($flag == false){
-		
-		//SQL ERROR関数実行
-		queryError($stmt);
-			
+    
+    //SQL ERROR関数実行
+    queryError($stmt);
+
   }
-	//実行が成功なら
+  //実行が成功なら
   else{
 		
     //データの数だけ回す

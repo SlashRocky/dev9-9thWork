@@ -2,8 +2,8 @@
   //セッションスタート開始
   session_start();
 
-	//関数定義ファイル読み込み
-	include("../include/functions.php");
+  //関数定義ファイル読み込み
+  include("../include/functions.php");
 	
   //book.jsのファイルでPOST送信されたデータの受け取り
   $userId = isset($_POST['userId']) ? $_POST['userId'] : '';
@@ -12,8 +12,8 @@
   $url = isset($_POST['url']) ? $_POST['url'] : '';
   $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
 
-	//DB CONNECTION関数実行
-	$pdo = dbConnection();
+  //DB CONNECTION関数実行
+  $pdo = dbConnection();
 
   //実行したいSQL文
   $sql = "INSERT INTO book_table (no, userId, bookId, title, url, comment, regiDate) VALUES ( NULL, :userId, :bookId, :title, :url, :comment, sysdate() )";
@@ -34,8 +34,8 @@
   //失敗　→　エラーメッセージ表示
   if($flag == false){
 		
-		//SQL ERROR関数実行
-		queryError($stmt);
+    //SQL ERROR関数実行
+    queryError($stmt);
 		
   }
 

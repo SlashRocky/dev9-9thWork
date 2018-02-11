@@ -48,10 +48,10 @@
     //実行
     $flag = $stmt -> execute();
 		
-		//生成したいタグ
-		$view = "";
+    //生成したいタグ
+    $view = "";
 		
-		//その人が登録してあるだけの書籍データ取得
+    //その人が登録してあるだけの書籍データ取得
     while( $result2 = $stmt -> fetch(PDO::FETCH_ASSOC) ){
       
       $view .= '<li class="one-book">';
@@ -207,26 +207,26 @@
         <section id="main-inner" class="mr200 pt30 pb10">
           <div class="container">
             <div class="wrapper">
-							<form method="post" action="update.php">
-								<fieldset>
-									<legend class="title_person"><?=$result["name"]?>さんの情報</legend>
-									<div class="personal">
-										<label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
-										<label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
-										<label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
-										<label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag" value="<?=$result["manage_flag"]?>"></label><br>
-										<label class="label5">ユーザーステータス：<input type="text" name="life_flag" value="<?=$result["life_flag"]?>"></label><br>
-									</div>
-									<ul class="book-list">
-											<?=$view?>
-									</ul>
-									<div class="wrapper-submit-btn">
-											<input type="submit" value="登録情報変更" class="submit-btn">
-									</div>
-									<!-- 裏でidを渡す -->
-									<input type="hidden" name="id" value="<?=$id?>">
-								</fieldset>
-							</form>
+              <form method="post" action="update.php">
+                  <fieldset>
+                    <legend class="title_person"><?=$result["name"]?>さんの情報</legend>
+                    <div class="personal">
+                      <label class="label1">名前&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;：<input type="text" name="name" value="<?=$result["name"]?>"></label><br>
+                      <label class="label2">ログインID&emsp;&emsp;&emsp;&emsp;：<input type="text" name="loginId" value="<?=$result["loginId"]?>"></label><br>
+                      <label class="label3">ログインパスワード：<input type="text" name="loginPw" value="<?=$result["loginPw"]?>"></label><br>
+                      <label class="label4">管理者フラッグ&emsp;&emsp;：<input type="text" name="manage_flag" value="<?=$result["manage_flag"]?>"></label><br>
+                      <label class="label5">ユーザーステータス：<input type="text" name="life_flag" value="<?=$result["life_flag"]?>"></label><br>
+                    </div>
+                    <ul class="book-list">
+                      <?=$view?>
+                    </ul>
+                    <div class="wrapper-submit-btn">
+                      <input type="submit" value="登録情報変更" class="submit-btn">
+                      <!-- 裏でidを渡す -->
+                      <input type="hidden" name="id" value="<?=$id?>">
+                    </div>
+                  </fieldset>
+              </form>
             </div>
           </div>
         </section>
